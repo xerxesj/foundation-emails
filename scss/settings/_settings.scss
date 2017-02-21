@@ -89,6 +89,11 @@ $anchor-color: $primary-color;
 $anchor-color-visited: $anchor-color;
 $anchor-color-hover: darken($primary-color, 10%);
 $anchor-color-active: $anchor-color-hover;
+$anchor-text-decoration-secondary: underline;
+$anchor-color-secondary: $secondary-color;
+$anchor-color-visited-secondary: $anchor-color-secondary;
+$anchor-color-hover-secondary: darken($secondary-color, 10%);
+$anchor-color-active-secondary: darken($secondary-color, 10%);
 $stat-font-size: 40px;
 
 // 5. Button
@@ -144,4 +149,3 @@ $thumbnail-shadow: 0 0 0 1px rgba($black, 0.2);
 $thumbnail-shadow-hover: 0 0 6px 1px rgba($primary-color, 0.5);
 $thumbnail-transition: box-shadow 200ms ease-out;
 $thumbnail-radius: $global-radius;
-
