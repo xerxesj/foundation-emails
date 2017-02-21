@@ -70,14 +70,17 @@ th.column {
 
   // Prevents Nested columns from double the padding
   .column,
-  .columns {
+  .columns,
+  .column.first,
+  .columns.first {
     padding-left: 0 !important;
-    padding-right: 0 !important;
-
-    center {
-      min-width: none !important;
-    }
   }
+
+  .column.last,
+  .columns.last {
+    padding-right: 0 !important;
+  }
+
 }
 
 td.columns.last,
@@ -133,9 +136,12 @@ th.column {
     }
   }
 
-  td.large-#{$i} center,
-  th.large-#{$i} center {
-    min-width: -zf-grid-calc-px($i, $grid-column-count, $global-width) - ($global-gutter * 2);
+  //Vertically align all columns to center
+  .valign {
+    > tbody > tr > td.large-#{$i},
+    > tbody > tr > th.large-#{$i} {
+      vertical-align: middle;
+    }
   }
 
   .body .columns td.large-#{$i},
