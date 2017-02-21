@@ -44,9 +44,25 @@ $button-margin: 0 0 $global-margin 0 !default;
 /// @type Color
 $button-background: $primary-color !default;
 
+/// Border color around buttons.
+/// @type Border
+$button-border-color: $button-background !default;
+
 /// Border around buttons.
 /// @type Border
-$button-border: 2px solid $button-background !default;
+$button-border: 2px solid $button-border-color !default;
+
+/// Background color of buttons.
+/// @type Color
+$button-background-secondary: $secondary-color !default;
+
+/// Border color around buttons.
+/// @type Border
+$button-border-color-secondary: $button-background-secondary !default;
+
+/// Border around buttons.
+/// @type Border
+$button-border-secondary: 2px solid $button-border-color-secondary !default;
 
 /// Border radius of buttons. Not supported by all email clients.
 /// @type Number
@@ -65,7 +81,7 @@ table.button {
 
     td {
       text-align: left;
-      color: $button-color;
+      //color: $button-color;
       background: $button-background;
       border: $button-border;
 
@@ -75,7 +91,6 @@ table.button {
         font-weight: $button-font-weight;
         color: $button-color;
         text-decoration: none;
-        text-align: left;
         display: inline-block;
         padding: map-get($button-padding, default);
         border: 0 solid $button-background;
@@ -97,15 +112,18 @@ table.button {
 
 table.button:hover table tr td a,
 table.button:active table tr td a,
-table.button table tr td a:visited,
 table.button.tiny:hover table tr td a,
 table.button.tiny:active table tr td a,
-table.button.tiny table tr td a:visited,
 table.button.small:hover table tr td a,
 table.button.small:active table tr td a,
-table.button.small table tr td a:visited,
 table.button.large:hover table tr td a,
-table.button.large:active table tr td a,
+table.button.large:active table tr td a {
+  color: $button-color !important;
+}
+
+table.button table tr td a:visited,
+table.button.tiny table tr td a:visited,
+table.button.small table tr td a:visited,
 table.button.large table tr td a:visited {
   color: $button-color;
 }
@@ -145,7 +163,7 @@ table.button.large {
 
 table.button.expand,
 table.button.expanded {
-  width: 100%;
+  width: 100% !important;
 
   table {
     width: 100%;
@@ -168,8 +186,8 @@ table.button:visited,
 table.button:active {
   table {
     td {
-      background: darken($button-background, 10%);
-      color: $button-color;
+      background: darken($button-background, 10%) !important;
+      color: $button-color !important;
     }
   }
 }
@@ -179,7 +197,7 @@ table.button:visited,
 table.button:active {
   table {
     a {
-      border: 0 solid darken($button-background, 10%);
+      border: 0 solid darken($button-background, 10%) !important;
     }
   }
 }
@@ -187,9 +205,9 @@ table.button:active {
 table.button.secondary {
   table {
     td {
-      background: $secondary-color;
+      background: $button-background-secondary;
       color: $button-color;
-      border: 0px solid $secondary-color;
+      border: $button-border-secondary;
     }
 
     a {
@@ -202,12 +220,12 @@ table.button.secondary {
 table.button.secondary:hover {
   table {
     td {
-      background: lighten($secondary-color, 10%);
-      color: $button-color;
+      background: lighten($secondary-color, 10%) !important;
+      color: $button-color !important;
     }
 
     a {
-      border: 0 solid lighten($secondary-color, 10%);
+      border: 0 solid lighten($secondary-color, 10%) !important;
     }
   }
 }
@@ -215,7 +233,7 @@ table.button.secondary:hover {
 table.button.secondary:hover {
   table {
     td a {
-      color: $button-color;
+      color: $button-color !important;
     }
   }
 }
@@ -252,11 +270,11 @@ table.button.success {
 table.button.success:hover {
   table {
     td {
-      background: darken($success-color, 10%);
+      background: darken($success-color, 10%) !important;
     }
 
     a {
-      border: 0 solid darken($success-color, 10%);
+      border: 0 solid darken($success-color, 10%) !important;
     }
   }
 }
@@ -277,11 +295,11 @@ table.button.alert {
 table.button.alert:hover {
   table {
     td {
-      background: darken($alert-color, 10%);
+      background: darken($alert-color, 10%) !important;
     }
 
     a {
-      border: 0 solid darken($alert-color, 10%);
+      border: 0 solid darken($alert-color, 10%) !important;
     }
   }
 }
@@ -302,11 +320,11 @@ table.button.warning {
 table.button.warning:hover {
   table {
     td {
-      background: darken($warning-color, 10%);
+      background: darken($warning-color, 10%) !important;
     }
 
     a {
-      border: 0px solid darken($warning-color, 10%);
+      border: 0px solid darken($warning-color, 10%) !important;
     }
   }
 }
