@@ -126,29 +126,53 @@ $hr-border: 1px solid $black !default;
 /// @type Number | List
 $hr-margin: 20px auto !default;
 
-/// Text decoration for anchors.
+/// Text decoration for primary anchors.
 /// @type Keyword
 $anchor-text-decoration: none !default;
 
-/// Text color of anchors.
+/// Text color of primary anchors.
 /// @type Color
 $anchor-color: $primary-color !default;
 
-/// Text color of anchors to visited links.
+/// Text color of primary anchors to visited links.
 /// @type Color
 $anchor-color-visited: $anchor-color !default;
 
-/// Text color of anchors on hover.
+/// Text color of primary anchors on hover.
 /// @type Color
 $anchor-color-hover: darken($primary-color, 10%) !default;
 
-/// Text color of active anchors.
+/// Text color of primary active anchors.
 /// @type Color
 $anchor-color-active: $anchor-color-hover !default;
+
+/// Text decoration primary for secondary anchors.
+/// @type Keyword
+$anchor-text-decoration-secondary: underline !default;
+
+/// Text color of secondary anchors.
+/// @type Color
+$anchor-color-secondary: $secondary-color !default;
+
+/// Text color of secondary anchors to visited links.
+/// @type Color
+$anchor-color-visited-secondary: $anchor-color-secondary !default;
+
+/// Text color of secondary anchors on hover.
+/// @type Color
+$anchor-color-hover-secondary: darken($secondary-color, 10%) !default;
+
+/// Text color of secondary active anchors.
+/// @type Color
+$anchor-color-active-secondary: darken($secondary-color, 10%) !default;
 
 /// Default font size for statistic numbers.
 /// @type Number
 $stat-font-size: 40px !default;
+
+/// Removing the iOS telephone and address styling
+/// @type Boolean
+$remove-ios-blue: true !default;
 
 body,
 table.body,
@@ -160,12 +184,14 @@ h5,
 h6,
 p,
 td,
-th,
-a {
+th {
   color: $global-font-color;
   font-family: $body-font-family;
   font-weight: $global-font-weight;
-  padding: 0;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
   margin: 0;
   Margin: 0;
   text-align: left;
@@ -247,17 +273,38 @@ small {
 a {
   color: $anchor-color;
   text-decoration: $anchor-text-decoration;
+  font-family: $body-font-family;
+  font-weight: $global-font-weight;
+  padding: 0;
+  text-align: left;
+  line-height: $global-line-height;
 
   &:hover {
-    color: $anchor-color-hover;
+    color: $anchor-color-hover !important;
   }
 
   &:active {
-    color: $anchor-color-active;
+    color: $anchor-color-active !important;
   }
 
   &:visited {
     color: $anchor-color-visited;
+  }
+
+  &.secondary {
+    color: $anchor-color-secondary;
+    text-decoration: $anchor-text-decoration-secondary;
+    &:hover {
+      color: $anchor-color-hover-secondary !important;
+    }
+
+    &:active {
+      color: darken($anchor-color-active-secondary, 10%) !important;
+    }
+
+    &:visited {
+      color: $anchor-color-secondary;
+    }
   }
 }
 
@@ -299,7 +346,7 @@ pre {
 // Horizontal rule
 table.hr {
   width: 100%;
-  
+
   th {
     height: 0;
     max-width: $hr-width;
@@ -336,4 +383,20 @@ span.preheader {
   max-width: 0px;
   opacity: 0;
   overflow: hidden;
+}
+
+// Removing the iOS colors put in for telephone and addresses
+@if $remove-ios-blue {
+  // Wrapping in a media only screen to have inline-css respect the styling
+  @media only screen {
+    /* uncss:ignore */
+    a[x-apple-data-detectors] {
+      color: inherit !important;
+      text-decoration: none !important;
+      font-size: inherit !important;
+      font-family: inherit !important;
+      font-weight: inherit !important;
+      line-height: inherit !important;
+    }
+  }
 }
