@@ -28,7 +28,7 @@ $callout-border: 1px solid darken($callout-background, 20%) !default;
 
 /// Border around a callout with the `.success` class.
 /// @type Border
-$callout-border-secondary: 1px solid darken($secondary-color, 20%) !default;
+$callout-border-secondary: 1px solid lighten($secondary-color, 20%) !default;
 
 /// Border around a callout with the `.success` class.
 /// @type Border
@@ -53,9 +53,17 @@ th.callout-inner {
   padding: $callout-padding;
   background: $callout-background;
 
+  & th.columns.last {
+    padding-bottom: 0;
+  }
+
+  & th.columns :last-child {
+    margin-bottom: 0;
+  }
+
   &.primary {
     background: scale-color($primary-color, $lightness: $callout-background-fade);
-    border: $callout-border-secondary;
+    border: $callout-border;
     color: $black;
   }
 
