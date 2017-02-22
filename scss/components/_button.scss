@@ -77,6 +77,7 @@ table.button {
 
   td {
     padding: $button-margin;
+    line-height: 100%;
   }
 
   table {
@@ -91,6 +92,7 @@ table.button {
       a {
         font-family: $body-font-family;
         font-size: map-get($button-font-size, default);
+        line-height: 100%;
         font-weight: $button-font-weight;
         color: $button-color;
         text-decoration: none;
