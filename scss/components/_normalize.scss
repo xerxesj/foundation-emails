@@ -84,16 +84,23 @@ th {
   border-collapse: collapse !important;
 }
 
+<<<<<<< HEAD
 table,
 tr,
 td,
 th {
+=======
+table, tr, td {
+>>>>>>> zurb/develop
   padding-top: 0;
   padding-right: 0;
   padding-bottom: 0;
   padding-left: 0;
+<<<<<<< HEAD
   font-size: 0;
   line-height: 0;
+=======
+>>>>>>> zurb/develop
   vertical-align: top;
   text-align: left;
 }
