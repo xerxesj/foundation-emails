@@ -183,12 +183,8 @@ h4,
 h5,
 h6,
 p,
-<<<<<<< HEAD
-td{
-=======
 td,
 th {
->>>>>>> zurb/develop
   color: $global-font-color;
   font-family: $body-font-family;
   font-weight: $global-font-weight;
@@ -392,10 +388,7 @@ span.preheader {
 @if $remove-ios-blue {
   // Wrapping in a media only screen to have inline-css respect the styling
   @media only screen {
-<<<<<<< HEAD
     /* uncss:ignore */
-=======
->>>>>>> zurb/develop
     a[x-apple-data-detectors] {
       color: inherit !important;
       text-decoration: none !important;

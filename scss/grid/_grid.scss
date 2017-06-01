@@ -44,7 +44,8 @@ table {
   &.row {
     padding: 0;
     width: 100%;
-    position: relative;
+    // Removed due to ESP's having tracking issues with this rule
+    // position: relative;
   }
 
   &.spacer {

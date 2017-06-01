@@ -75,8 +75,7 @@ table {
   border-collapse: collapse;
 }
 
-td,
-th {
+td {
   word-wrap: break-word;
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
@@ -84,23 +83,15 @@ th {
   border-collapse: collapse !important;
 }
 
-<<<<<<< HEAD
 table,
 tr,
-td,
-th {
-=======
-table, tr, td {
->>>>>>> zurb/develop
+td {
   padding-top: 0;
   padding-right: 0;
   padding-bottom: 0;
   padding-left: 0;
-<<<<<<< HEAD
   font-size: 0;
   line-height: 0;
-=======
->>>>>>> zurb/develop
   vertical-align: top;
   text-align: left;
 }
