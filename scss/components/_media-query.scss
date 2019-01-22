@@ -134,5 +134,32 @@
     center {
       min-width: 0;
     }
-  }
+	}
+
+	// Collapse gutters
+	.collapse-gutter-small,
+	.collapse-gutter-small > tbody > tr > .columns,
+	.collapse-gutter-small > tr > .columns {
+		padding-left:0 !important;
+		padding-right:0 !important;
+	}
+
+	.collapse-bottom-small,
+	.collapse-bottom-small > tbody > tr > .columns,
+	.collapse-bottom-small > tr > .columns,
+	.text.collapse-bottom-small th {
+		padding-bottom:0 !important;
+		margin-bottom:0 !important;
+		Margin-bottom:0 !important;
+	}
+
+	.collapse-top-small {
+		padding-top: 0 !important;
+		margin-top: 0 !important;
+		Margin-top: 0 !important;
+	}
+
+	.collapse-border-small th {
+		border: none !important;
+	}
 }

@@ -28,15 +28,20 @@ body {
 .ExternalClass {
   width: 100%;
 
-  &,
-  p,
-  span,
-  font,
-  td,
-  th,
-  div {
-    line-height: 100%;
-  }
+  // &,
+  // p,
+  // span,
+  // font,
+  // td,
+  // th,
+  // div {
+	* {
+		line-height: 100%;
+	}
+}
+
+.ReadMsgBody {
+	width: 100%;
 }
 
 #backgroundTable {
