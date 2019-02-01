@@ -124,7 +124,11 @@ $hr-border: 1px solid $black !default;
 
 /// Default margin for a divider.
 /// @type Number | List
-$hr-margin: 20px auto !default;
+$hr-margin: 20px !default;
+
+/// Default alignment for a divider.
+/// @type String
+$hr-align: center !default;
 
 /// Text decoration for primary anchors.
 /// @type Keyword
