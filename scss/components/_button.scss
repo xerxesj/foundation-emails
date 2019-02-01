@@ -52,6 +52,26 @@ $button-border-color: $button-background !default;
 /// @type Border
 $button-border: 2px solid $button-border-color !default;
 
+/// Hover State - Button text color
+/// @type Color
+$button-hover-color: $white !default;
+
+/// Hover State - Background color of button
+/// @type Color
+$button-hover-background: darken($button-background, 10%) !default;
+
+/// Hover State - Background color around buttons
+/// @type Border
+$button-hover-border-color: $button-background !default;
+
+/// Hover State - Border around buttons.
+/// @type Border
+$button-hover-border: 2px solid darken($button-hover-border-color, 10%) !default;
+
+/// Text color of buttons.
+/// @type Color
+$button-color-secondary: $white !default;
+
 /// Background color of buttons.
 /// @type Color
 $button-background-secondary: $secondary-color !default;
@@ -64,6 +84,22 @@ $button-border-color-secondary: $button-background-secondary !default;
 /// @type Border
 $button-border-secondary: 2px solid $button-border-color-secondary !default;
 
+/// Hover State - Button text color
+/// @type Color
+$button-hover-color-secondary: $white !default;
+
+/// Hover State - Background color of button
+/// @type Color
+$button-hover-background-secondary: darken($button-background-secondary, 10%) !default;
+
+/// Hover State - Background color around buttons
+/// @type Border
+$button-hover-border-color-secondary: $button-background-secondary !default;
+
+/// Hover State - Border around buttons.
+/// @type Border
+$button-hover-border-secondary: 2px solid darken($button-hover-border-color-secondary, 10%) !default;
+
 /// Border radius of buttons. Not supported by all email clients.
 /// @type Number
 $button-radius: $global-radius !default;
@@ -72,23 +108,23 @@ $button-radius: $global-radius !default;
 /// @type Number
 $button-rounded: $global-rounded !default;
 
+
 table.button {
-  width: auto;
+	width: auto;
+	margin: $button-margin;
+	Margin: $button-margin;
 
   td {
-    padding: $button-margin;
     line-height: 100%;
   }
 
   table {
-
     td {
       text-align: left;
       color: $button-color;
       background: $button-background;
       border: $button-border;
       padding: 0;
-
       a {
         font-family: $body-font-family;
         font-size: map-get($button-font-size, default);
@@ -102,17 +138,59 @@ table.button {
         border-radius: $button-radius;
       }
     }
+	}
+
+	&:hover,
+	&:visited,
+	&:active {
+		table {
+			td {
+				background: $button-hover-background !important;
+				border: $button-hover-border !important;
+				color: $button-hover-color !important;
+			}
+			a {
+				border: 0 solid $button-hover-background !important;
+				color: $button-hover-color !important;
+			}
+		}
+	}
+
+	table {
+    td a:visited {
+      color: $button-hover-color;
+    }
   }
 
-  &.radius table td {
-    border-radius: $button-radius;
-    border: none;
-  }
+	&.radius {
+		table td {
+			border-radius: $button-radius;
+    	border: none;
+		}
 
-  &.rounded table td {
-    border-radius: $button-rounded;
-    border: none;
-  }
+		&:hover,
+		&:visited,
+		&:active {
+			table td {
+				border: 0 !important;
+			}
+		}
+	}
+
+  &.rounded {
+		table td {
+			border-radius: $button-rounded;
+			border: none;
+		}
+
+		&:hover,
+		&:visited,
+		&:active {
+			table td {
+				border: 0 !important;
+			}
+		}
+	}
 }
 
 table.button:hover table tr td a,
@@ -123,14 +201,14 @@ table.button.small:hover table tr td a,
 table.button.small:active table tr td a,
 table.button.large:hover table tr td a,
 table.button.large:active table tr td a {
-  color: $button-color !important;
+  color: $button-hover-color !important;
 }
 
 table.button table tr td a:visited,
 table.button.tiny table tr td a:visited,
 table.button.small table tr td a:visited,
 table.button.large table tr td a:visited {
-  color: $button-color;
+  color: $button-hover-color;
 }
 
 table.button.tiny {
@@ -167,164 +245,151 @@ table.button.expanded {
 
   table {
     width: 100%;
-
     a {
       text-align: center;
       width: 100%;
       padding-left: 0;
       padding-right: 0;
     }
-  }
+	}
 
   center {
     min-width: 0;
   }
 }
 
-table.button:hover,
-table.button:visited,
-table.button:active {
-  table {
-    td {
-      background: darken($button-background, 10%) !important;
-      color: $button-color !important;
-    }
-  }
-}
-
-table.button:hover,
-table.button:visited,
-table.button:active {
-  table {
-    a {
-      border: 0 solid darken($button-background, 10%) !important;
-    }
-  }
-}
-
+// Secondary
 table.button.secondary {
   table {
     td {
-      background: $button-background-secondary;
-      color: $button-color;
-      border: $button-border-secondary;
+			background: $button-background-secondary;
+			border: $button-border-secondary;
+      color: $button-color-secondary;
     }
-
     a {
-      color: $button-color;
-      border: 0 solid $secondary-color;
+			border: 0 solid $button-background-secondary;
+      color: $button-color-secondary;
+    }
+	}
+
+	&:hover,
+	&:visited,
+	&:active {
+		table {
+			td {
+				background: $button-hover-background-secondary !important;
+				border: $button-hover-border-secondary !important;
+				color: $button-hover-color-secondary !important;
+			}
+			a {
+				border: 0 solid $button-hover-background-secondary !important;
+				color: $button-hover-color-secondary !important;
+			}
+		}
+	}
+
+	table {
+    td a:visited {
+      color: $button-hover-color-secondary;
     }
   }
 }
 
-table.button.secondary:hover {
+// Success
+table.button.success {
   table {
     td {
-      background: lighten($secondary-color, 10%) !important;
-      color: $button-color !important;
+      background: $success-color;
+      border: 2px solid $success-color;
     }
-
     a {
-      border: 0 solid lighten($secondary-color, 10%) !important;
+      border: 0 solid $success-color;
     }
-  }
-}
+	}
 
-table.button.secondary:hover {
-  table {
-    td a {
-      color: $button-color !important;
-    }
-  }
-}
+	&:hover,
+	&:visited,
+	&:active {
+		table {
+			td {
+				background: darken($success-color, 10%) !important;
+				border: 2px solid darken($success-color, 10%) !important;
+			}
+			a {
+				border: 0 solid darken($success-color, 10%) !important;
+			}
+		}
+	}
 
-table.button.secondary:active {
-  table {
-    td a {
-      color: $button-color;
-    }
-  }
-}
-
-table.button.secondary {
-  table {
+	table {
     td a:visited {
       color: $button-color;
     }
   }
 }
 
-table.button.success {
-  table {
-    td {
-      background: $success-color;
-      border: 0px solid $success-color;
-    }
-
-    a {
-      border: 0 solid $success-color;
-    }
-  }
-}
-
-table.button.success:hover {
-  table {
-    td {
-      background: darken($success-color, 10%) !important;
-    }
-
-    a {
-      border: 0 solid darken($success-color, 10%) !important;
-    }
-  }
-}
-
+// Alert
 table.button.alert {
   table {
     td {
       background: $alert-color;
-      border: 0px solid $alert-color;
+      border: 2px solid $alert-color;
     }
-
     a {
       border: 0 solid $alert-color;
     }
+	}
+
+	&:hover,
+	&:visited,
+	&:active {
+		table {
+			td {
+				background: darken($alert-color, 10%) !important;
+				border: 2px solid darken($alert-color, 10%) !important;
+			}
+			a {
+				border: 0 solid darken($alert-color, 10%) !important;
+			}
+		}
+	}
+
+	table {
+    td a:visited {
+      color: $button-color;
+    }
   }
 }
 
-table.button.alert:hover {
-  table {
-    td {
-      background: darken($alert-color, 10%) !important;
-    }
-
-    a {
-      border: 0 solid darken($alert-color, 10%) !important;
-    }
-  }
-}
-
+// Warning
 table.button.warning {
   table {
     td {
       background: $warning-color;
-      border: 0px solid $warning-color;
+      border: 2px solid $warning-color;
     }
-
     a {
       border: 0px solid $warning-color;
     }
-  }
-}
+	}
 
-table.button.warning:hover {
-  table {
-    td {
-      background: darken($warning-color, 10%) !important;
-    }
+	&:hover,
+	&:visited,
+	&:active {
+		table {
+			td {
+				background: darken($warning-color, 10%) !important;
+				border: 2px solid darken($warning-color, 10%) !important;
+			}
+			a {
+				border: 0px solid darken($warning-color, 10%) !important;
+			}
+		}
+	}
 
-    a {
-      border: 0px solid darken($warning-color, 10%) !important;
+	table {
+    td a:visited {
+      color: $button-color;
     }
   }
 }
