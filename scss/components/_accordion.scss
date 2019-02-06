@@ -1,0 +1,200 @@
+////
+/// @group accordion
+////
+
+/// Border color of accordion container.
+/// @type Color
+$accordion-border-color: #dededd !default;
+
+/// Border thickness of accordion container.
+/// @type Length
+$accordion-border-thickness: 1px !default;
+
+/// Padding of accordion header.
+/// @type Length
+$accordion-header-padding: 17px 15px 17px 15px !default;
+
+/// Background color of a accordion header.
+/// @type Color
+$accordion-header-background: $white !default;
+
+/// Text size of a accordion header.
+/// @type Number
+$accordion-header-size: 16px !default;
+
+/// Color of a accordion header.
+/// @type Color
+$accordion-header-color: $black !default;
+
+/// Padding of accordion header ico.
+/// @type Length
+$accordion-header-ico-padding: 16px !default;
+
+/// Height of accordion header ico.
+/// @type Length
+$accordion-header-ico-height: 24px !default;
+
+/// Width of accordion header ico.
+/// @type Length
+$accordion-header-ico-width: 24px !default;
+
+/// Padding of accordion content.
+/// @type Length
+$accordion-content-padding: 17px 15px 17px 15px !default;
+
+/// Background color of a accordion content.
+/// @type Color
+$accordion-content-background: #fafafa !default;
+
+/// Border of accordion header bottom
+/// @type Boolean
+$accordion-content-seperator: false !default;
+
+/// Border of accordion header bottom
+/// @type Border
+$accordion-content-seperator-style: $accordion-border-thickness solid $accordion-border-color;
+
+/// Text size of a accordion header.
+/// @type Number
+$accordion-content-size: 14px !default;
+
+/// Color of a accordion header.
+/// @type Color
+$accordion-content-color: #505050 !default;
+
+
+.accordion-inner {
+  background: $accordion-border-color;
+  padding-top: $accordion-border-thickness;
+  padding-right: $accordion-border-thickness;
+	padding-left: $accordion-border-thickness;
+
+	@if $accordion-content-seperator == true {
+		padding-bottom: $accordion-border-thickness;
+
+		tr .accordion-title td {
+			border-top: $accordion-content-seperator-style;
+		}
+		tr:first-child .accordion-title td {
+			border-top: none;
+		}
+	}
+}
+
+.accordion-title .accordion-header {
+	padding: $accordion-header-padding;
+}
+
+.accordion-title td {
+	background: $accordion-header-background;
+	vertical-align: middle;
+	@if $accordion-content-seperator == false {
+		border-bottom: $accordion-border-thickness solid $accordion-border-color;
+	}
+}
+
+.accordion-title td:not(.accordion-ico) {
+  color: $accordion-header-color;
+  font-size: $accordion-header-size;
+  line-height: 1;
+  width: 100%;
+}
+
+.accordion-ico {
+	padding: $accordion-header-ico-padding;
+  img {
+		max-width: inherit;
+	}
+}
+
+// icon size
+.accordion-more,
+.accordion-less {
+  display: none;
+  height: $accordion-header-ico-height;
+	width: $accordion-header-ico-width;
+  @include mobile {
+    height: $accordion-header-ico-height !important;
+		width: $accordion-header-ico-width !important;
+  }
+}
+
+// reaveling content
+.accordion-content {
+	td {
+		background: $accordion-content-background;
+		padding: $accordion-content-padding;
+		@if $accordion-content-seperator == false {
+			border-bottom: $accordion-border-thickness solid $accordion-border-color;
+		}
+	}
+
+	td * {
+		font-size: $accordion-content-size;
+	}
+
+	td *:not(a) {
+		color: $accordion-content-color;
+	}
+
+	&--gutterless {
+		td {
+			padding-top: 0;
+			padding-bottom: 0;
+			padding-left: 0;
+			padding-right: 0;
+			background: transparent;
+		}
+	}
+}
+
+noinput.accordion-checkbox {
+  display: block !important;
+}
+
+// Used for clients that support input[checkbox]
+@media only screen and (min-width: 0) {
+  input.accordion-checkbox,
+  .accordion-less {
+    display: none !important;
+  }
+
+  input.accordion-checkbox + * {
+    .accordion-title {
+      cursor: pointer;
+      touch-action: manipulation;
+      user-select: none;
+    }
+    .accordion-content {
+      // overflow: hidden;
+      display: none;
+    }
+    .accordion-more {
+      display: block !important;
+    }
+  }
+
+  input.accordion-checkbox:checked + * {
+    .accordion-content {
+      display: block;
+    }
+    .accordion-more {
+      display: none !important;
+    }
+    .accordion-less {
+      display: block !important;
+		}
+		// .accordion-header,
+		// .accordion-ico {
+		// 	border-bottom: $accordion-border-thickness solid $accordion-border-color;
+		// }
+	}
+
+  .accordion-element {
+    display: block;
+  }
+
+  .accordion-checkbox {
+    display: none;
+  }
+}
